@@ -1,0 +1,190 @@
+.content-wrapper {
+    padding: 3% 10% 10% 10%;
+    background: rgba(9, 242, 192, 0.3);
+}
+
+body {
+    background-color: rgba(244, 229, 173, 0.5);
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    float: left;
+    margin: 5%;
+    width: 20%;
+    text-align: center;
+    background: rgba(244, 229, 173, 0.8);
+    font-size: 1em;
+}
+
+.card img {
+    align-self: center;
+    padding: 10% 10% 15% 10%;
+    width: 80%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 2%;
+    margin: 5% 5% 0% 0%;
+    width: 50%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+    border-color: #cccccc;
+}
+
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: rgba(241, 241, 241, 0.4);
+    width: 50%;
+}
+
+#new_word {
+    padding-top: 15%;
+    padding-bottom: 5%;
+    cursor: grab;
+}
+
+#index_parrot, #index_owl {
+    margin-top: 2%;
+    width: 15%;
+    float: right;
+}
+
+#index_parrot {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.word {
+    text-align: center;
+}
+
+.missed {
+    color: firebrick;
+    font-style: italic;
+}
+
+#score, #all {
+    font-size: 180%;
+    font-style: normal;
+    color: #11557C;
+    display: inline;
+}
+
+#drag-elements {
+    display: block;
+    border-radius: 5px;
+    min-height: 50px;
+    margin: 0 auto;
+    padding: 2em;
+    cursor: pointer;
+}
+
+#drop-target-left, #drop-target-right {
+    border: 2px dashed #D9D9D9;
+    border-radius: 5px;
+    min-height: 50px;
+    padding: 2em;
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: 10%;
+}
+
+#drop-target-left, #drop-target-right {
+    transition: all .5s;
+    text-align: center;
+    float: left;
+    padding: 1em;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: 2px solid skyblue;
+    color: steelblue;
+    background: #F7F7F7;
+    transition: all .5s ease;
+}
+
+#drop-target-left > div:active, #drop-target-right > div:active {
+    animation: wiggle 0.3s 0s infinite ease-in;
+    opacity: .6;
+    border: 2px solid #000;
+}
+
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    padding: 1em;
+}
+
+.gu-hide, .invisible {
+    display: none !important;
+}
+
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+        cursor: grabbing;
+}
+
+.gu-transit {
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+.gu-mirror {
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+.empty {
+    display: none;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgba(9, 242, 192, 0.5);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}

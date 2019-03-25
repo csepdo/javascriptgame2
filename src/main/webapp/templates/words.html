@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <title>Szavak</title>
+{% endblock %}
+
+{% block content %}
+    <button class="collapsible">LY</button>
+    <div class="card, content">
+        <div class="container">
+            {% for word in words_ly %}
+                <p>{{ word }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="collapsible">J</button>
+    <div class="card, content">
+        <div class="container">
+            {% for word in words_j %}
+                <p>{{ word }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
