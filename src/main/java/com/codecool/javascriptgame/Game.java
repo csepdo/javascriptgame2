@@ -17,8 +17,8 @@ public class Game extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
 
-
-
+        resp.setContentType("text/html; charset=UTF-8");
+        resp.setCharacterEncoding("UTF-8");
 
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));
