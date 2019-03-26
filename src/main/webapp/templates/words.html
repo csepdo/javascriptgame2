@@ -28,33 +28,32 @@
     <title>Szavak</title>
 </head>
 <body>
+<div>
     <button class="collapsible">LY</button>
     <div class="card, content">
         <div class="container">
-            {% for word in words_ly %}
-                <p>{{ word }}</p>
-            {% endfor %}
+            <div class="word" th:each="word : ${wordsLY}"><b th:text="${word}"></b></div>
         </div>
     </div>
     <button class="collapsible">J</button>
     <div class="card, content">
         <div class="container">
-            {% for word in words_j %}
-                <p>{{ word }}</p>
-            {% endfor %}
+            <div class="word" th:each="word : ${wordsJ}"><b th:text="${word}"></b></div>
         </div>
-    </div>
-<script src="static/js/game.js" defer></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script src="static/js/game.js" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</div>
 </body>
 </html>

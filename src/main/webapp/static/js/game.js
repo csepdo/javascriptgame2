@@ -1,5 +1,35 @@
 let score = 0;
+let wordsLY;
+let wordsJ;
 
+window.onload = getLists;
+
+function getLists() {
+    loadDocLY('src/main/webapp/static/data/LY_replaced.txt')
+    loadDocJ('src/main/webapp/static/data/J_replaced.txt');
+}
+
+function loadDocLY(url) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            wordsLY = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
+
+function loadDocJ(url) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            wordsJ = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
 
 function collapsibleButtons() {
     let coll = document.getElementsByClassName("collapsible");
@@ -18,32 +48,48 @@ function collapsibleButtons() {
     }
 }
 
+function dropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
 
 function showCheckWord(status, side, word) {
-    setTimeout(function() {word.classList.add('invisible')}, 1000)
+    setTimeout(function () {
+        word.classList.add('invisible')
+    }, 1000)
     if (status === 'correct') {
         if (side === 'left') {
             changePicture('.owl', 'static/img/happy_owl.png');
             setTimeout(function () {
                 changePicture('.owl', 'static/img/wise_owl.png');
             }, 1500)
-        }
-        else if (side === 'right') {
+        } else if (side === 'right') {
             changePicture('.parrot', 'static/img/happy_parrot.png');
             setTimeout(function () {
                 changePicture('.parrot', 'static/img/greeting_parrot.png');
             }, 1500)
         }
         score++;
-    }
-    else if (status === 'incorrect') {
+    } else if (status === 'incorrect') {
         if (side === 'left') {
             changePicture('.owl', 'static/img/sad_owl.png');
             setTimeout(function () {
                 changePicture('.owl', 'static/img/wise_owl.png');
             }, 1500);
-        }
-        else if (side === 'right') {
+        } else if (side === 'right') {
             changePicture('.parrot', 'static/img/sad_parrot.png');
             setTimeout(function () {
                 changePicture('.parrot', 'static/img/greeting_parrot.png');
@@ -59,37 +105,21 @@ function changePicture(element, url) {
 }
 
 
-function checkWord(xhttp, word, side) {
-    let word_list = xhttp.responseText;
+function checkWord(word_list, word, side) {
     if (word_list.search(word.textContent) >= 0) {
         if (side === 'left') {
             showCheckWord('correct', 'left', word);
-        }
-        else if (side === 'right') {
+        } else if (side === 'right') {
             showCheckWord('correct', 'right', word);
         }
     } else {
         word.classList.add('missed');
-
         if (side === 'left') {
             showCheckWord('incorrect', 'left', word);
-        }
-        else if (side === 'right') {
+        } else if (side === 'right') {
             showCheckWord('incorrect', 'right', word);
         }
     }
-}
-
-
-function loadDoc(filename, word, side) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-            checkWord(this, word, side)
-        }
-    };
-    xhttp.open("GET", filename, true);
-    xhttp.send();
 }
 
 
@@ -97,18 +127,15 @@ function dragAndDrop() {
     function $(id) {
         return document.getElementById(id);
     }
+
     dragula([$('drag-elements'), $('drop-target-left'), $('drop-target-right')], {
         revertOnSpill: true
     }).on('drop', function (el) {
         let word = el;
-        let side;
         if (el.parentElement === $('drop-target-left')) {
-            side = 'left';
-            loadDoc('/static/data/LY.txt', word, side)
-        }
-        else if (el.parentElement === $('drop-target-right')) {
-            side = 'right';
-            loadDoc('/static/data/J.txt', word, side)
+            checkWord(wordsLY, word, 'left')
+        } else if (el.parentElement === $('drop-target-right')) {
+            checkWord(wordsJ, word, 'right')
         }
     });
 }

@@ -30,15 +30,17 @@
 <body>
 <div class="content-wrapper">
     <div>
-        <form action="/jatek" method="get">
-            <h4>Hány szóval szeretnéd próbára tenni magad?</h4>
-            <select class="form-control" name="word-number">
-                {% for num in range(10, 51) %}
-                    <option value="{{ num }}">{{ num }}</option>
-                {% endfor %}
-            </select>
-            <button class="btn" type="submit">Mehet!</button>
-        </form>
+        <h4>Hány szóval szeretnéd próbára tenni magad?</h4>
+        <div class="dropdown">
+            <button onclick="dropdown()" class="dropbtn">Válassz!</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="/jatek?szavak=10">10</a>
+                <a href="/jatek?szavak=20">20</a>
+                <a href="/jatek?szavak=30">30</a>
+                <a href="/jatek?szavak=40">40</a>
+                <a href="/jatek?szavak=50">50</a>
+            </div>
+        </div>
     </div>
     <div class="card">
         <img class="owl" src="\static\img\wise_owl.png" alt="Avatar">
@@ -49,12 +51,9 @@
         <div class="empty" id="display-left"></div>
     </div>
     <div class="card">
+        <div><p id="score">0</p><p id="all">/x</p></div>
         <div class="container" id="drag-elements">
-            <div id="score">0</div>
-            <div id="all">/{{ word_number }}</div>
-            {% for word in words %}
-                <div class="word"><b>{{ word }}</b></div>
-            {% endfor %}
+            <div class="word" th:each="word : ${words}"><b th:text="${word}"></b></div>
         </div>
     </div>
     <div class="card">
@@ -66,17 +65,17 @@
         <div class="empty" id="display-right"></div>
     </div>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-<script src="static/js/game.js" defer></script>
+    <script src="static/js/game.js" defer></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
