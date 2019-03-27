@@ -78,6 +78,10 @@ body {
     -ms-filter: "FlipH";
 }
 
+.parrot {
+    margin-top: 10px;
+}
+
 .word {
     text-align: center;
 }
