@@ -43,7 +43,7 @@ public class Game extends HttpServlet {
         ArrayList<String> selectedWords = new ArrayList<>();
         ArrayList<String> currentList = wordList.getAllWordsReplaced();
         Collections.shuffle(currentList);
-        for (int i=0; i <= numberOfWords; i++) {
+        for (int i=0; i < numberOfWords; i++) {
             String word = currentList.get(i);
             selectedWords.add(word);
         }
