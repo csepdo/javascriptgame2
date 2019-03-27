@@ -9,10 +9,7 @@ public class readWordFiles {
 
     private ArrayList<String> jWords = new ArrayList<>();
     private ArrayList<String> lyWords = new ArrayList<>();
-    private ArrayList<String> jWordsReplaced = new ArrayList<>();
-    private ArrayList<String> lyWordsReplaced = new ArrayList<>();
     private ArrayList<String> allWordsReplaced = new ArrayList<>();
-
 
     private void readWords(String filePath, ArrayList<String> wordList) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -26,7 +23,6 @@ public class readWordFiles {
         }
     }
 
-
     public ArrayList<String> getJWords() {
         readWords("src/main/webapp/static/data/J.txt", jWords);
         return jWords;
@@ -35,16 +31,6 @@ public class readWordFiles {
     public ArrayList<String> getLyWords() {
         readWords("src/main/webapp/static/data/LY.txt", lyWords);
         return lyWords;
-    }
-
-    public ArrayList<String> getJWordsReplaced() {
-        readWords("src/main/webapp/static/data/J_replaced.txt", jWordsReplaced);
-        return jWordsReplaced;
-    }
-
-    public ArrayList<String> getLyWordsReplaced() {
-        readWords("src/main/webapp/static/data/LY_replaced.txt", lyWordsReplaced);
-        return lyWordsReplaced;
     }
 
     public ArrayList<String> getAllWordsReplaced() {

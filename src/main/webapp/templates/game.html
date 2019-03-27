@@ -51,7 +51,7 @@
         <div class="empty" id="display-left"></div>
     </div>
     <div class="card">
-        <div><p id="score">0</p><p id="all">/x</p></div>
+        <div><p id="score">0</p><span id="separator"><b> / </b></span><p id="all" th:text="${numberOfWords}"></p></div>
         <div class="container" id="drag-elements">
             <div class="word" th:each="word : ${words}"><b th:text="${word}"></b></div>
         </div>

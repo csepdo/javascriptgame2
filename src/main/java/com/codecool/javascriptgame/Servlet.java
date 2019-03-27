@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 @WebServlet(name = "javascriptGameIndex", urlPatterns = {"/"}, loadOnStartup = 1)
 public class Servlet extends HttpServlet {
@@ -20,12 +18,9 @@ public class Servlet extends HttpServlet {
             throws IOException {
 
         setEncoding(resp);
-//        Map params = new HashMap<>();
-//        params.put("category", productCategoryDataStore.find(1));
-//        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
-//        context.setVariables(params);
+
         context.setVariable("recipient", "World");
         engine.process("/index.html", context, resp.getWriter());
     }

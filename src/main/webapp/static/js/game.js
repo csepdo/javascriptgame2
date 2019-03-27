@@ -5,8 +5,8 @@ let wordsJ;
 window.onload = getLists;
 
 function getLists() {
-    loadDocLY('src/main/webapp/static/data/LY_replaced.txt')
-    loadDocJ('src/main/webapp/static/data/J_replaced.txt');
+    loadDocLY('static/data/LY_replaced.txt')
+    loadDocJ('static/data/J_replaced.txt');
 }
 
 function loadDocLY(url) {
@@ -52,7 +52,6 @@ function dropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -99,11 +98,9 @@ function showCheckWord(status, side, word) {
     showScore()
 }
 
-
 function changePicture(element, url) {
     $(element).attr('src', url);
 }
-
 
 function checkWord(word_list, word, side) {
     if (word_list.search(word.textContent) >= 0) {
@@ -122,7 +119,6 @@ function checkWord(word_list, word, side) {
     }
 }
 
-
 function dragAndDrop() {
     function $(id) {
         return document.getElementById(id);
@@ -140,12 +136,10 @@ function dragAndDrop() {
     });
 }
 
-
 function showScore() {
     let score_place = document.getElementById('score');
     score_place.textContent = score;
 }
-
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -155,12 +149,10 @@ function scrollFunction() {
     }
 }
 
-
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
 
 collapsibleButtons();
 dragAndDrop();
