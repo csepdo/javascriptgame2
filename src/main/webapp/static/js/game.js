@@ -1,4 +1,6 @@
 let score = 0;
+let all = document.getElementById("all").innerText;
+let missed = 0;
 let wordsLY;
 let wordsJ;
 
@@ -94,8 +96,10 @@ function showCheckWord(status, side, word) {
                 changePicture('.parrot', 'static/img/greeting_parrot.png');
             }, 1500)
         }
+        missed++;
     }
-    showScore()
+    showScore();
+    countScore();
 }
 
 function changePicture(element, url) {
@@ -134,6 +138,22 @@ function dragAndDrop() {
             checkWord(wordsJ, word, 'right')
         }
     });
+}
+
+function countScore() {
+    if ((missed + score) === parseInt(all)) {
+        setTimeout(function () {
+            if (score === all*1) {
+                alert("Tökéletes!");
+            } else if (score > all * 0.8) {
+                alert("Úgy látszik, tényleg érted a dolgod!");
+            } else if (score >= all * 0.5) {
+                alert("Nem is rossz eredmény!");
+            } else {
+                alert("Rád férne a gyakorlás!");
+            }
+        }, 1800);
+    }
 }
 
 function showScore() {
