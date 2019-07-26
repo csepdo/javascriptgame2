@@ -10,3 +10,4 @@ Used technologies:
 - CSS
 - Ajax
 - Dragula
+- JQuery
