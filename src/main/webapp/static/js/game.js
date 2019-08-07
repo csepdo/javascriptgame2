@@ -9,6 +9,7 @@ window.onload = getLists;
 function getLists() {
     loadDocLY('static/data/LY_replaced.txt');
     loadDocJ('static/data/J_replaced.txt');
+    openWords();
 }
 
 function loadDocLY(url) {
