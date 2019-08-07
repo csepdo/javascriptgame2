@@ -9,7 +9,6 @@ window.onload = getLists;
 function getLists() {
     loadDocLY('static/data/LY_replaced.txt');
     loadDocJ('static/data/J_replaced.txt');
-    openWords();
 }
 
 function loadDocLY(url) {
@@ -32,29 +31,6 @@ function loadDocJ(url) {
     };
     xhttp.open("GET", url, true);
     xhttp.send();
-}
-
-function openWords() {
-    let button = document.getElementsByClassName("words");
-
-    button.addEventListener("click", collapsibleButtons());
-}
-
-function collapsibleButtons() {
-    let coll = document.getElementsByClassName("collapsible");
-    let i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            let content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
 }
 
 function dropdown() {
@@ -181,7 +157,6 @@ function topFunction() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-openWords();
 dragAndDrop();
 window.onscroll = function () {
     scrollFunction()
